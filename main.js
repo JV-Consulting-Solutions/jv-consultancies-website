@@ -19,13 +19,17 @@ document.addEventListener("DOMContentLoaded", () => {
     cards[index].classList.add("active");
     dots[index].classList.add("active");
 
-    const offset =
-      cards[index].offsetLeft -
-      (window.innerWidth / 2) +
-      (cards[index].offsetWidth / 2);
+    if(window.innerWidth > 900){
 
-    track.style.transform =
-      `translateX(-${offset}px)`;
+      const offset =
+        cards[index].offsetLeft -
+        (window.innerWidth / 2) +
+        (cards[index].offsetWidth / 2);
+
+      track.style.transform =
+        `translateX(-${offset}px)`;
+
+    }
 
   }
 
@@ -37,13 +41,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
       updateCarousel(currentIndex);
 
+      // mobile scroll support
+      if(window.innerWidth <= 900){
+
+        cards[index].scrollIntoView({
+          behavior:"smooth",
+          inline:"center"
+        });
+
+      }
+
     });
 
   });
 
   updateCarousel(currentIndex);
 
-  if (window.innerWidth <= 900) {
+  if(window.innerWidth <= 900){
 
     track.addEventListener("scroll", () => {
 
@@ -61,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const distance =
           Math.abs(cardCenter - viewportCenter);
 
-        if (distance < closestDistance) {
+        if(distance < closestDistance){
           closestDistance = distance;
           closestIndex = index;
         }
@@ -77,4 +91,5 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
   }
+
 });
