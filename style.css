@@ -392,17 +392,39 @@ h1, h2, h3 {
 }
 
 @media (max-width: 900px){
+
   .services-scroll{
+    position:relative;
+    overflow:hidden;
+  }
+
+  .services-track{
     display:flex;
-    overflow-x:auto;
     gap:20px;
+
+    overflow-x:auto;
     scroll-snap-type:x mandatory;
-    padding-bottom:20px;
+
+    padding:10px 20px 20px;
+
+    scroll-behavior:smooth;
+
+    -ms-overflow-style:none;
+    scrollbar-width:none;
+  }
+
+  .services-track::-webkit-scrollbar{
+    display:none;
   }
 
   .service-card{
-    min-width:280px;
+    flex:0 0 85%;
     scroll-snap-align:center;
+  }
+
+  .scroll-hint{
+    margin-bottom:15px;
+    padding-left:20px;
   }
 }
 
