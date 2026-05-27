@@ -43,4 +43,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updateCarousel(currentIndex);
 
+  if (window.innerWidth <= 900) {
+
+    track.addEventListener("scroll", () => {
+
+      let closestIndex = 0;
+      let closestDistance = Infinity;
+
+      cards.forEach((card, index) => {
+
+        const cardCenter =
+          card.offsetLeft + (card.offsetWidth / 2);
+
+        const viewportCenter =
+          track.scrollLeft + (track.offsetWidth / 2);
+
+        const distance =
+          Math.abs(cardCenter - viewportCenter);
+
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = index;
+        }
+
+      });
+
+      dots.forEach(dot => {
+        dot.classList.remove("active");
+      });
+
+      dots[closestIndex].classList.add("active");
+
+    });
+
+  }
 });
