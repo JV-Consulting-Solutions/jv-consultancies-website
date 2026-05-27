@@ -68,10 +68,12 @@ h1, h2, h3 {
   align-items:center;
 }
 
-.navbar-brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+.navbar-brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  color:white;
 }
 
 .nav-logo {
@@ -387,6 +389,21 @@ h1, h2, h3 {
   width:32px;              /* stretches horizontally */
   background:#b48a57;
   border-radius:6px;       /* keeps soft corners */
+}
+
+@media (max-width: 900px){
+  .services-scroll{
+    display:flex;
+    overflow-x:auto;
+    gap:20px;
+    scroll-snap-type:x mandatory;
+    padding-bottom:20px;
+  }
+
+  .service-card{
+    min-width:280px;
+    scroll-snap-align:center;
+  }
 }
 
 /* TESTIMONIALS */
