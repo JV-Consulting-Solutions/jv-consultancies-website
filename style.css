@@ -393,11 +393,6 @@ h1, h2, h3 {
 
 @media (max-width: 900px){
 
-  .services-scroll{
-    position:relative;
-    overflow:hidden;
-  }
-
   .services-track{
     display:flex;
     gap:20px;
@@ -405,12 +400,14 @@ h1, h2, h3 {
     overflow-x:auto;
     scroll-snap-type:x mandatory;
 
-    padding:10px 20px 20px;
+    padding:20px;
 
     scroll-behavior:smooth;
 
     -ms-overflow-style:none;
     scrollbar-width:none;
+
+    transform:none !important;
   }
 
   .services-track::-webkit-scrollbar{
@@ -419,12 +416,35 @@ h1, h2, h3 {
 
   .service-card{
     flex:0 0 85%;
+    min-width:0; /* IMPORTANT */
+
+    padding:40px 30px;
+
     scroll-snap-align:center;
+
+    opacity:1;
+    transform:none;
+    filter:none;
+  }
+
+  .service-card.active{
+    transform:none;
+  }
+
+  .service-number{
+    font-size:3rem;
+  }
+
+  .service-card h3{
+    font-size:1.5rem;
   }
 
   .scroll-hint{
     margin-bottom:15px;
-    padding-left:20px;
+  }
+
+  .carousel-dots{
+    margin-top:10px;
   }
 }
 
