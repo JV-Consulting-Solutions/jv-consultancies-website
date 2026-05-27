@@ -41,12 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       updateCarousel(currentIndex);
 
-      // mobile scroll support
       if(window.innerWidth <= 900){
 
         cards[index].scrollIntoView({
-          behavior:"smooth",
-          inline:"center"
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest"
         });
 
       }
@@ -55,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  updateCarousel(currentIndex);
 
   if(window.innerWidth <= 900){
 
@@ -82,14 +81,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       });
 
-      dots.forEach(dot => {
-        dot.classList.remove("active");
-      });
+      if(currentIndex !== closestIndex){
 
-      dots[closestIndex].classList.add("active");
+        currentIndex = closestIndex;
+
+        updateCarousel(currentIndex);
+
+      }
 
     });
 
   }
+
+  updateCarousel(currentIndex);
 
 });
