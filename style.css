@@ -416,19 +416,23 @@ h1, h2, h3 {
 
   .service-card{
     flex:0 0 85%;
-    min-width:0; /* IMPORTANT */
+    min-width:0;
 
     padding:40px 30px;
 
     scroll-snap-align:center;
 
-    opacity:1;
-    transform:none;
-    filter:none;
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
+
+    transition:none;
   }
 
   .service-card.active{
-    transform:none;
+    opacity:1 !important;
+    transform:none !important;
+    filter:none !important;
   }
 
   .service-number{
